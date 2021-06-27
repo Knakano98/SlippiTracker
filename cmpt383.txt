@@ -1,0 +1,17 @@
+Topic Idea: 
+A web application to process and compile statistics of Slippi (.slp) files, allowing users to submit their match details to see trends and metrics of their games. 
+Slippi is a community project for Super Smash Brothers Melee, which implements replays and statistics to the game, as well as provide a method to play this game online through emulation. 
+Currently, .slp files can only be viewed individually. The purpose of this project is to allow players to 1. Analyze statistics for a bulk amount of time/ games and 2. Allow users to save their statistics, without having to have .slp files saved on their computer 
+(More details here: https://github.com/project-slippi/project-slippi) 
+
+Programming Languages: 
+React/JavaScript Front End 
+Django/Python for backend 
+Rust for calculation/data processing 
+
+Inter Language Communicaiton Method 
+Foreign Function Interface for communication between Python and Rust 
+REST for communication beetween JavaSCript and Python 
+
+Deployment Technology: 
+Docker 

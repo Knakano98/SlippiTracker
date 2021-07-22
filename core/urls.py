@@ -14,12 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 from django.views.generic import TemplateView
 
+#https://blog.logrocket.com/creating-an-app-with-react-and-django/
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test',views.home),
-    path('',TemplateView.as_view(template_name='index.html'))
+    path('',TemplateView.as_view(template_name='index.html')),
+    re_path(r'^api/user/$', views.user_list),
+    re_path(r'^api/user/([0-9])$', views.user_detail),
 ]

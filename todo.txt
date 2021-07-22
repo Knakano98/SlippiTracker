@@ -1,0 +1,11 @@
+Project Timeline:
+7/31: Base features completed
+  -User able to upload slippi files
+  -Slippi file info are stored into database
+  -User can access data from database through webapp
+
+Todo:
+1. Figure out how to get data inputted through react template to django backend
+2. Figure out how to get slippi file uploaded through react template
+3. Get database organized and set up slippifile to database path
+4.

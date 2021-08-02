@@ -5,10 +5,10 @@ Project Timeline:
   -User can access data from database through webapp
 
 Todo:
-2. Figure out how to get slippi file uploaded through react template
-3. Get database organized and set up slippifile to database path
-4.
+1. Get zip file from react to django backend
+2. Process zip file, get slippi files out of there
+3. Process slippi file info, get into database 
 
-
+misc: Clean up dependencies
 
 Structure: Home and Header are components in App.js,which is then in index.js.

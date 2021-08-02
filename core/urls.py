@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('test',views.home),
     path('',TemplateView.as_view(template_name='index.html')),
-    re_path(r'^api/user/$', views.user_list),
-    re_path(r'^api/user/([0-9])$', views.user_detail),
+    re_path(r'^zip_upload/$', views.zip_upload),
+    #re_path(r'^api/user/$', views.user_list),
+    #re_path(r'^api/user/([0-9])$', views.user_detail),
 ]

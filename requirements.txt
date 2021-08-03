@@ -5,9 +5,12 @@ Django==3.1.7
 django-cors-headers==3.7.0
 djangorestframework==3.12.4
 filelock==3.0.12
+py-slippi==1.6.1
+py-ubjson==0.16.1
 pycryptodome==3.10.1
 pygame==2.0.1
 pytz==2021.1
 six==1.15.0
 sqlparse==0.4.1
+termcolor==1.1.0
 virtualenv==20.4.3

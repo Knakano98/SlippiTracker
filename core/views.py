@@ -5,8 +5,9 @@ from rest_framework import status
 from django.http import FileResponse
 from .models import *
 from .serializers import *
+from slippi import Game
 from zipfile import ZipFile
-import io
+import os
 from django.core.files.storage import FileSystemStorage
 
 def home(request):
@@ -20,16 +21,32 @@ def zip_upload(request):
 
 
     zipFile = request.FILES['file']
-    print(zipFile.name)
-    print(zipFile.size)
+    #print(zipFile.name)
+    #print(zipFile.size)
+    gameArray=[]
+
 
     with ZipFile(zipFile, 'r') as zip:
         # printing all the contents of the zip file
-        zip.printdir()
+        fileList= zip.namelist()
+
+        #zip.printdir()
+        #Store file names in zipfile, then use that after .extractall()
 
         # extracting all the files
         print('Extracting all the files now...')
+        #process slippi files here
+
         zip.extractall()
+
+
+        for i in fileList:
+            gameArray.append(Game(i))
+
+
+        for i in gameArray:
+            print(i)
+
         print('Done!')
 
     return Response(status=status.HTTP_201_CREATED)

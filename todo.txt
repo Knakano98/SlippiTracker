@@ -1,15 +1,46 @@
-Project Timeline:
-7/31: Base features completed
-  -User able to upload slippi files
-  -Slippi file info are stored into database
-  -User can access data from database through webapp
-
 Todo:
 1. Get zip file from react to django backend- Done
-2. Process zip file, get slippi files out of there - Done 
+2. Process zip file, get slippi files out of there - Done
   - Get slippi files parsed and turned into objects
 3. Process slippi file info, get into database
+4. Create basic way for getting info from database and viewing in webapp
+5. Add viewing of overall stats by entering user code
+
+x. Clean up and pretty front end
+y. Add way to skip already uploaded files/games
 
 misc: Clean up dependencies
 
 Structure: Home and Header are components in App.js,which is then in index.js.
+
+
+
+Slippi File Structure:
+  - Game.metadata
+    - Date
+    - Duration
+    - Platform
+    - Player
+      -Name
+      -Code
+      -Port (Use to match with player info in game.start)
+  -Game.start
+    - Stage
+    - Player
+      - Character
+      - Color
+  - Other data to be calculated
+    -Who won(Calculate with last frame of duration)
+
+
+Game[game_id, date, duration, platform, stage, victorCode]
+game_id is unique key, victorCode being netplay code of winner
+
+playerSessionInfo[playerSessionInfoID,character, color, netplayCode, port, game_id]
+
+playerSessionInfoID is unqiueKey, game_id foreign key referencing Game
+
+
+2-4 player info per game, how to store in database?
+Options:
+  1. Store playerinfo with unique ID in seperate table, and have playerinfo reference the gameID.

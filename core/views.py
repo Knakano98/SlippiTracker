@@ -9,12 +9,15 @@ from slippi import Game as slippiGame #https://github.com/hohav/py-slippi
 from zipfile import ZipFile
 import os
 from django.core.files.storage import FileSystemStorage
-
+from django.db import connection
 def home(request):
     return render(request,'index.html')
 
+
+
 @api_view(['POST'])
 def zip_upload(request):
+    #Get zip file from react, unzip and process slippi files into DBMS.
     print("POST ZIP FILE")
 
     print(request.FILES);
@@ -107,6 +110,15 @@ def zip_upload(request):
 
     return Response(status=status.HTTP_201_CREATED)
 
+
+@api_view(['GET'])
+def game_list(request):
+    data = Game.objects.all()
+
+    serializer = GameSerializer(data, context={'request': request}, many=True)
+
+    return Response(serializer.data)
+    
 
 # @api_view(['GET', 'POST'])
 # def user_list(request):

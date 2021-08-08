@@ -118,7 +118,55 @@ def game_list(request):
     serializer = GameSerializer(data, context={'request': request}, many=True)
 
     return Response(serializer.data)
-    
+
+
+@api_view(['GET'])
+def get_user_info(request):
+    code=request.query_params.get("code")
+    #print(str(code))
+    fixedCode=""
+
+    for i in str(code):
+        if(i=='_'):
+            fixedCode=fixedCode+'#'
+        else:
+            fixedCode=fixedCode+i
+
+
+    print(fixedCode)
+
+    #Join core_game with core_playersessioninfo
+    #get winrate
+    #get games where player played in
+    #Check in those games who the victor was
+    #playerSession = PlayerSessionInfo.objects.select_related( 'game').filter(netplayCode=fixedCode)
+    playerSession = PlayerSessionInfo.objects.select_related( 'game').filter(netplayCode=fixedCode)
+    total=0
+    wins=0
+
+    #Convert this section to rust
+    print(playerSession.query)
+    for i in playerSession:
+        total=total+1
+        if(i.game.victor==i.netplayCode):
+            wins=wins+1
+        print(i.game.victor)
+        print(i.netplayCode)
+    #innerjoin core_game with core_playersessinfo with the core_playersessinfo.game_id and  core_game.id
+    #
+
+    print("wins " + str(wins))
+    print("total " + str(total))
+
+    winRate= wins/total*100
+
+    print(winRate)
+
+    returnDict={"winRate": winRate, "total": total}
+
+
+    return Response(returnDict)
+
 
 # @api_view(['GET', 'POST'])
 # def user_list(request):

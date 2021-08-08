@@ -25,6 +25,7 @@ urlpatterns = [
     path('',TemplateView.as_view(template_name='index.html')),
     re_path(r'^zip_upload/$', views.zip_upload),
     re_path(r'^games/$', views.game_list),
+    re_path(r'^user_info/$', views.get_user_info),
     #re_path(r'^api/user/$', views.user_list),
     #re_path(r'^api/user/([0-9])$', views.user_detail),
 ]

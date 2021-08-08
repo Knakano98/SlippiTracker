@@ -1,25 +1,22 @@
 Todo:
-1. Get zip file from react to django backend- Done
-2. Process zip file, get slippi files out of there - Done
-  - Get slippi files parsed and turned into objects
-3. Process slippi file info, get into database- Done
-4. Create basic way for getting info from database and viewing in webapp - Done
+1. Get info from views to display in userInfo component 8/9
+2. Get rust component working 8/9  - BASIC PROJECRT FUNCTIONALITY DONE.
+3. Add additional info
+  -Character winRate
+  -Stage winrate
+  -Matchup winrate (Overall)
+  -Matchup winrate (Character specific)
+  -Overall MatchUp winrate on stage
+  -Character specific MatchUp winrate on stage
+  -Playtime for character
+  -APM for character
+  -APM Overall
+  -Anything else I can think of (Bonus)
+5. Add way to query overall data between time periods
+4. Pretty Up front end
+5. Add way to skip already uploaded games
 
-5. Add viewing of overall stats by entering user code 8/6
-6, Add viewing within usercode 8/8
-  - Create component for user info viewing
-  - Get user code from react to django via axios
-  - Get basic info up with normal calulations
-    -overall winrate
-    -character winrate
-    -Games played 
-    -Stage winrate
-  - Add rust for quick calculations
-  - Stats from date to date
-  - Stats for Character
-  -Stats for stage
-  -Match ups
-7. Add additional info if needed
+
 
 x. Clean up and pretty front end
 y. Add way to skip already uploaded files/games

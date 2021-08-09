@@ -12,6 +12,7 @@ from django.core.files.storage import FileSystemStorage
 from django.db import connection
 from django.http import HttpResponse
 import json
+import mylib
 def home(request):
     return render(request,'index.html')
 
@@ -146,16 +147,26 @@ def get_user_info(request):
     total=0
     wins=0
 
+
+    print(playerSession)
+
+    #playerSession contains a querySet
+    #Convert querySet to a form that can be passed to rust (Json?)
+    #Import rust function that takes in tghe json, then return the relevent info
+    #Process data in rust, then return values
+
+
     #Convert this section to rust
-    print(playerSession.query)
     for i in playerSession:
         total=total+1
         if(i.game.victor==i.netplayCode):
             wins=wins+1
-        print(i.game.victor)
-        print(i.netplayCode)
+        #print(i.game.victor)
+        #print(i.netplayCode)
     #innerjoin core_game with core_playersessinfo with the core_playersessinfo.game_id and  core_game.id
-    #
+
+
+
 
     print("wins " + str(wins))
     print("total " + str(total))

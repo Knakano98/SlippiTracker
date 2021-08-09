@@ -14,6 +14,7 @@ Todo:
   -Anything else I can think of (Bonus)
 5. Add way to query overall data between time periods
 4. Pretty Up front end
+  -Add thing to show that file is loading 
 5. Add way to skip already uploaded games
 
 

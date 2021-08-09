@@ -10,6 +10,8 @@ from zipfile import ZipFile
 import os
 from django.core.files.storage import FileSystemStorage
 from django.db import connection
+from django.http import HttpResponse
+import json
 def home(request):
     return render(request,'index.html')
 
@@ -162,10 +164,10 @@ def get_user_info(request):
 
     print(winRate)
 
-    returnDict={"winRate": winRate, "total": total}
+    data={"winRate": winRate, "total": total}
 
-
-    return Response(returnDict)
+    print(data)
+    return Response(data)
 
 
 # @api_view(['GET', 'POST'])

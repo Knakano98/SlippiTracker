@@ -135,8 +135,9 @@ def get_user_info(request):
         else:
             fixedCode=fixedCode+i
 
+    
 
-    print(fixedCode)
+    #print(fixedCode)
 
     #Join core_game with core_playersessioninfo
     #get winrate
@@ -144,78 +145,55 @@ def get_user_info(request):
     #Check in those games who the victor was
     #playerSession = PlayerSessionInfo.objects.select_related( 'game').filter(netplayCode=fixedCode)
     playerSession = PlayerSessionInfo.objects.select_related( 'game').filter(netplayCode=fixedCode)
-    total=0
-    wins=0
 
 
-    print(playerSession)
+    #print(playerSession)
 
     #playerSession contains a querySet
     #Convert querySet to a form that can be passed to rust (Json?)
     #Import rust function that takes in tghe json, then return the relevent info
     #Process data in rust, then return values
 
+    data=[]
 
-    #Convert this section to rust
+    #Create list of dict
+
     for i in playerSession:
-        total=total+1
-        if(i.game.victor==i.netplayCode):
-            wins=wins+1
-        #print(i.game.victor)
-        #print(i.netplayCode)
+        #i={'id': 8, 'character': 'CSSCharacter.FOX', 'color': 1, 'netplayCode': 'FEET#352', 'name': 'cfour', 'port': 1, 'game_id': 4}
+        #data=data+list(i)
+        dict={
+            "character": i.character,
+            "color": i.color ,
+            "netplayCode": i.netplayCode,
+            "name":i.name, 
+            "port": i.port, 
+            "date": i.game.date, 
+            "platform": i.game.platform,
+            "stage": i.game.stage,
+            "victor": i.game.victor 
+        }
+        data.append(dict)
     #innerjoin core_game with core_playersessinfo with the core_playersessinfo.game_id and  core_game.id
 
+    jsonData=json.dumps(data)
 
 
+    result= mylib.dict_process(jsonData)
 
-    print("wins " + str(wins))
-    print("total " + str(total))
 
-    winRate= wins/total*100
+    #print(data)
 
-    print(winRate)
+
+    #print("wins " + str(wins))
+    #print("total " + str(total))
+
+    winRate= result["winRate"]*100; 
+    total=result["total"]; 
+    #print(winRate)
 
     data={"winRate": winRate, "total": total}
 
-    print(data)
+    #print(data)
     return Response(data)
 
 
-# @api_view(['GET', 'POST'])
-# def user_list(request):
-#     if request.method == 'GET':
-#         data = User.objects.all()
-#
-#         serializer = UserSerializer(data, context={'request': request}, many=True)
-#
-#         return Response(serializer.data)
-#
-#     elif request.method == 'POST':
-#         print("POST" + str(request.data))
-#         serializer = UserSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(status=status.HTTP_201_CREATED)
-#
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-
-
-# @api_view(['PUT', 'DELETE'])
-# def user_detail(request, pk):
-#     try:
-#         user = User.objects.get(pk=pk)
-#     except User.DoesNotExist:
-#         return Response(status=status.HTTP_404_NOT_FOUND)
-#
-#     if request.method == 'PUT':
-#         serializer = UserSerializer(user, data=request.data,context={'request': request})
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(status=status.HTTP_204_NO_CONTENT)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-#
-#     elif request.method == 'DELETE':
-#         user.delete()
-#         return Response(status=status.HTTP_204_NO_CONTENT)

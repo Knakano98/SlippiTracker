@@ -181,19 +181,31 @@ def get_user_info(request):
     result= mylib.dict_process(jsonData)
 
 
-    #print(data)
 
 
-    #print("wins " + str(wins))
-    #print("total " + str(total))
+    winRate= result["winRate"]*100
+    total=result["total"]
+    FODwinRate= result["FODwinRate"]*100
+    PSwinRate= result["PSwinRate"]*100
+    YSwinRate= result["YSwinRate"]*100
+    DLwinRate= result["DLwinRate"]*100
+    BFwinRate= result["BFwinRate"]*100
+    FDwinRate= result["FDwinRate"]*100
+  
+ 
 
-    winRate= result["winRate"]*100; 
-    total=result["total"]; 
-    #print(winRate)
+    data={
+        "winRate": winRate,
+        "total": total,
+        "FODwinRate": FODwinRate, 
+        "PSwinRate": PSwinRate, 
+        "YSwinRate": YSwinRate, 
+        "DLwinRate": DLwinRate, 
+        "BFwinRate": BFwinRate, 
+        "FDwinRate": FDwinRate, 
+        }
 
-    data={"winRate": winRate, "total": total}
 
-    #print(data)
     return Response(data)
 
 

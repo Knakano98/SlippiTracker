@@ -14,7 +14,8 @@ This project was also made possible through the use of py-slippi, which is a par
 
 Download the repository, open command line and run 
 
-```docker-compose build
+```
+docker-compose build
 docker-compose up
 ```
 The application should then be running at localhost:3000/home
@@ -22,8 +23,8 @@ The application should then be running at localhost:3000/home
 A test ZIP file containing some Slippi files has been provided in the repository. Simply upload the zip file to the website, and enter the relevent code (ex: CACT_404) to see the player CACT#404's player information. 
 
 # Project Structure 
-Frontend: React (JavaScript)
-Backend: Django(Python) + Rust for calculations 
+Frontend: React (JavaScript)\
+Backend: Django(Python) + Rust for calculations \
 Database: SQLite
 
 

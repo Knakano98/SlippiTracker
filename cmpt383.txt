@@ -1,17 +1,29 @@
-Topic Idea: 
-A web application to process and compile statistics of Slippi (.slp) files, allowing users to submit their match details to see trends and metrics of their games. 
-Slippi is a community project for Super Smash Brothers Melee, which implements replays and statistics to the game, as well as provide a method to play this game online through emulation. 
-Currently, .slp files can only be viewed individually. The purpose of this project is to allow players to 1. Analyze statistics for a bulk amount of time/ games and 2. Allow users to save their statistics, without having to have .slp files saved on their computer 
-(More details here: https://github.com/project-slippi/project-slippi) 
+Goal: 
+Slippi Stat Tracker is an application for compiling/viewing a player's stats based on their Slippi files. While stats are provided by the Slippi launcher, there is currently no way to see compiled stats for several games at a time, and to have access to these stats the user is forced to hold onto the Slippi files, which can quickly pile up.
 
-Programming Languages: 
-React/JavaScript Front End 
-Django/Python for backend 
-Rust for calculation/data processing 
+Languages:
+The front end is implemented using React and JavaScript. 
+The backend is implemented using Python and Django.
+The logic for calculating information from the Slippi files is impelented using Rust to make use of its faster calculation speeds. 
 
-Inter Language Communicaiton Method 
-Foreign Function Interface for communication between Python and Rust 
-REST for communication beetween JavaSCript and Python 
+Communification:
+The frontend(JavaScript/React) and backend(Django/Python) communicates via Axios(https://github.com/axios/axios), a promised based HTTP client. 
+Rust commincates with Python/Django via Rust-CPython (https://github.com/dgrunwald/rust-cpython).
 
-Deployment Technology: 
-Docker 
+How to run:
+Download the repository, and in the commandline run 
+
+docker-compose build
+docker-compose up
+
+The application should then be running at "http://localhost:3000/home" 
+
+Features:
+A test zip file, containing some Slippi files has been provide in the repository. 
+Uploading the file and then refreshing the home page once the folder has been processed (May take a while, progres can be see in the commandline)  should display the games uploaded. 
+The user can then enter a player's user code to see a specific user's stats across the uploaded games. (ex: CACT_404 inputted in the text input). This open a new page which displays the player's total winrate, character winrate, and stage winrate. 
+
+This fulfills the main 2 goals of this project. To provide users a way to compile their statistics across several games, and if hosted on a server, provide the user with a way to keep track of their stats without having to hold onto the Slippi files on their computer. More intricate statistics such as winrate against certain characters, most used move, and others could also be implemented using this project as a baseline, but currently due to deadline and time constraints, is not implemented. 
+
+
+

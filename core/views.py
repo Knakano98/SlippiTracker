@@ -191,8 +191,35 @@ def get_user_info(request):
     DLwinRate= result["DLwinRate"]*100
     BFwinRate= result["BFwinRate"]*100
     FDwinRate= result["FDwinRate"]*100
+    
+    CaptainFalconWinRate=result["CaptainFalconWinRate"]*100
+    DonkeyKongWinRate=result["DonkeyKongWinRate"]*100
+    FoxWinRate=result["FoxWinRate"]*100
+    MrGameAndWatchWinRate=result["MrGameAndWatchWinRate" ]*100
+    KirbyWinRate=result["KirbyWinRate" ]*100
+    BowserWinRate=result["BowserWinRate"]*100
+    LinkWinRate=result["LinkWinRate" ]*100
+    LuigiWinRate=result["LuigiWinRate"]*100
+    MarioWinRate=result["MarioWinRate"]*100
+    MarthWinRate=result["MarthWinRate"]*100
+    MewtwoWinRate=result["MewtwoWinRate"]*100
+    NessWinRate=result["NessWinRate"]*100
+    PeachWinRate =result["PeachWinRate"]*100
+    PikachuWinRate=result["PikachuWinRate"]*100
+    IceClimbersWinRate=result[ "IceClimbersWinRate"]*100
+    JigglypuffWinRate=result[ "JigglypuffWinRate"]*100
+    SamusWinRate=result[ "SamusWinRate"]*100
+    YoshiWinRate = result[ "YoshiWinRate"]*100
+    ZeldaWinRate =result[ "ZeldaWinRate" ]*100
+    SheikWinRate = result["SheikWinRate" ]*100
+    FalcoWinRate = result["FalcoWinRate"]*100
+    YoungLinkWinRate  =result["YoungLinkWinRate"]*100
+    DrMarioWinRate=  result["DrMarioWinRate"]*100
+    RoyWinRate = result["RoyWinRate"]*100
+    PichuWinRate=result["PichuWinRate"]*100
+    GanondorfWinRate =result["GanondorfWinRate"]*100
   
- 
+    print("VIEWS PEACH WR" + str(PeachWinRate))
 
     data={
         "winRate": winRate,
@@ -203,6 +230,32 @@ def get_user_info(request):
         "DLwinRate": DLwinRate, 
         "BFwinRate": BFwinRate, 
         "FDwinRate": FDwinRate, 
+        "CaptainFalconWinRate":CaptainFalconWinRate,
+        "DonkeyKongWinRate":DonkeyKongWinRate,
+        "FoxWinRate":FoxWinRate,
+        "MrGameAndWatchWinRate":MrGameAndWatchWinRate,
+        "KirbyWinRate":KirbyWinRate,
+        "BowserWinRate":BowserWinRate,
+        "LinkWinRate":LinkWinRate,
+        "LuigiWinRate":LuigiWinRate,
+        "MarioWinRate":MarioWinRate,
+        "MarthWinRate":MarthWinRate,
+        "MewtwoWinRate":MewtwoWinRate,
+        "NessWinRate":NessWinRate,
+        "PeachWinRate":PeachWinRate,
+        "PikachuWinRate":PikachuWinRate,
+        "IceClimbersWinRate":IceClimbersWinRate,
+        "JigglypuffWinRate":JigglypuffWinRate,
+        "SamusWinRate":SamusWinRate,
+        "YoshiWinRate":YoshiWinRate,
+        "ZeldaWinRate" :ZeldaWinRate,
+        "SheikWinRate" : SheikWinRate,
+        "FalcoWinRate" : FalcoWinRate,
+        "YoungLinkWinRate"  :YoungLinkWinRate,
+        "DrMarioWinRate":  DrMarioWinRate,
+        "RoyWinRate" : RoyWinRate,
+        "PichuWinRate":PichuWinRate,
+        "GanondorfWinRate" :GanondorfWinRate,
         }
 
 

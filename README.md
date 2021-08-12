@@ -27,4 +27,4 @@ Frontend: React (JavaScript)\
 Backend: Django(Python) + Rust for calculations \
 Database: SQLite
 
-
+Note: This is a general readme, the specific project summary for the marking criteria is in cmpt383.txt

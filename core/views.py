@@ -23,7 +23,7 @@ def zip_upload(request):
     #Get zip file from react, unzip and process slippi files into DBMS.
     print("POST ZIP FILE")
 
-    print(request.FILES);
+    #print(request.FILES);
 
 
     zipFile = request.FILES['file']
@@ -105,8 +105,8 @@ def zip_upload(request):
             playerSessionInfo=PlayerSessionInfo(character=char1,color=color1,netplayCode=netplayCode1,name=name1,port=port1,game=game)
             playerSessionInfo.save()
 
-        print(Game.objects.values())
-        print(PlayerSessionInfo.objects.values())
+        #print(Game.objects.values())
+        #print(PlayerSessionInfo.objects.values())
 
 
         print('Done!')
@@ -219,7 +219,7 @@ def get_user_info(request):
     PichuWinRate=result["PichuWinRate"]*100
     GanondorfWinRate =result["GanondorfWinRate"]*100
   
-    print("VIEWS PEACH WR" + str(PeachWinRate))
+    #print("VIEWS FALCO WR" + str(FalcoWinRate))
 
     data={
         "winRate": winRate,

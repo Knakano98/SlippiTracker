@@ -150,11 +150,12 @@ fn dict_process(_py: Python ,val: &str) -> PyResult<HashMap<String, f32>> {
                 _ if character == String::from("\"CSSCharacter.YOSHI\"")=> charWins[17]=charWins[17]+1,
                 _ if character == String::from("\"CSSCharacter.ZELDA\"")=> charWins[18]=charWins[18]+1,
                 _ if character == String::from("\"CSSCharacter.SHEIK\"")=> charWins[19]=charWins[19]+1,
-                _ if character == String::from("\"CSSCharacter.YOUNG_LINK\"")=> charWins[20]=charWins[20]+1,
-                _ if character == String::from("\"CSSCharacter.DR_MARIO\"")=> charWins[21]=charWins[21]+1,
-                _ if character == String::from("\"CSSCharacter.ROY\"")=> charWins[22]=charWins[22]+1,
-                _ if character == String::from("\"CSSCharacter.PICHU\"")=> charWins[23]=charWins[23]+1,
-                _ if character == String::from("\"CSSCharacter.GANONDORF\"")=> charWins[24]=charWins[24]+1,
+                _ if character == String::from("\"CSSCharacter.FALCO\"")=> charWins[20]=charWins[20]+1,
+                _ if character == String::from("\"CSSCharacter.YOUNG_LINK\"")=> charWins[21]=charWins[21]+1,
+                _ if character == String::from("\"CSSCharacter.DR_MARIO\"")=> charWins[22]=charWins[22]+1,
+                _ if character == String::from("\"CSSCharacter.ROY\"")=> charWins[23]=charWins[23]+1,
+                _ if character == String::from("\"CSSCharacter.PICHU\"")=> charWins[24]=charWins[24]+1,
+                _ if character == String::from("\"CSSCharacter.GANONDORF\"")=> charWins[25]=charWins[25]+1,
                 _ => println!("nothing"),
             }
     
@@ -185,6 +186,8 @@ fn dict_process(_py: Python ,val: &str) -> PyResult<HashMap<String, f32>> {
         }
     }
 
+    println!("{:?}",  charWins);
+    println!("{:?}",  charTotals);
     println!("{:?}",  charWinRates);
 
     returnMap.insert("winRate".to_string(), winRate); 
